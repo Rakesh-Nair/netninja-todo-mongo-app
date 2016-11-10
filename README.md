@@ -1,7 +1,9 @@
 Shaun P (Net Ninja) Todo list tutorial, with express, ajax, mongo
 ==================================================================
 
-Mongo uses the mLab free sandbox account to host the db.
+It uses the mLab.com free sandbox account to host the db.
+
+If this db is not available it won't work.
 
 
 

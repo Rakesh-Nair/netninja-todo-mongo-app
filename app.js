@@ -13,5 +13,5 @@ app.use(express.static('./public'))     // to get the css file, you would now on
 todoController(app)     // this todoController is in is an exported function. we pass in app here so that it is available to the todoController.js file
 
 //listen to port
-app.listen(3000); 
+app.listen(3000)
 console.log('listening on port 3000')
