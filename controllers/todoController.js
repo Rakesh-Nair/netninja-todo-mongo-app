@@ -1,18 +1,18 @@
-var bodyParser = require('body-parser')
-var mongoose = require('mongoose')
+let bodyParser = require('body-parser')
+let mongoose = require('mongoose')
 
 //connect to the database
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise
 mongoose.connect('mongodb://user1:p4ssword@ds149567.mlab.com:49567/netninjatodo')
 
 //create a schema - like a blueprint of what the db should expect to receive
-var todoSchema = new mongoose.Schema({
+let todoSchema = new mongoose.Schema({
     item: String
 })
 
 // create the model
 // the string Todo below is the name of the collection that will be used to store the todos. The var Todo is just a variable.
-var Todo = mongoose.model('Todo', todoSchema)
+let Todo = mongoose.model('Todo', todoSchema)
 // this returns a Todo object with a save method on it, so save can be called
 
 // this is just a test to add an item to the mongo db to confirm functionality.
@@ -22,10 +22,9 @@ var Todo = mongoose.model('Todo', todoSchema)
 // })
 
 
-
 //var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'do some coding'}]  // using this var, the data is only stored on the server temporarily... until the server file is restarted. This is dummy data, used to do the initial testing, before the mongo db is hooked up.
 
-var urlencodedParser = bodyParser.urlencoded({extended: false})     // gives access to the body of a post request via the req.body param
+let urlencodedParser = bodyParser.urlencoded({extended: false})     // gives access to the body of a post request via the req.body param
 
 module.exports = function(app) {        // this is a function that takes app as an arg. this function is called from app.js and passes app into the function here so it can use it as app.get, app.post etc.
 
@@ -42,7 +41,7 @@ module.exports = function(app) {        // this is a function that takes app as 
     // Add a Tasks via $.ajax (todo-list.js)
     app.post('/todo', urlencodedParser, function(req, res) {
         //get data from the view and add it to the mongodb
-        var newTodo = Todo(req.body).save(function(err, data) {
+        Todo(req.body).save(function(err, data) {
             if (err) throw err
             res.json(data)
         })
