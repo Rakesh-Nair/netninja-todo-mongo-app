@@ -3,7 +3,7 @@ let mongoose = require('mongoose')
 
 //connect to the database
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://user1:p4ssword@ds149567.mlab.com:49567/netninjatodo')
+mongoose.connect('mongodb://user1:p4ssword@ds149567.mlab.com:49567/netninjatodo')  //todo - there is a way to hide this from git, think by putting in a different file and requiring that file, but adding that file to the gitignore?
 
 //create a schema - like a blueprint of what the db should expect to receive
 let todoSchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ let todoSchema = new mongoose.Schema({
 })
 
 // create the model
-// the string Todo below is the name of the collection that will be used to store the todos. The var Todo is just a variable.
+// the string Todo below is the name of the collection that will be used to store the todos. It will be created in the db if not already there. The var Todo is just a variable.
 let Todo = mongoose.model('Todo', todoSchema)
 // this returns a Todo object with a save method on it, so save can be called
 

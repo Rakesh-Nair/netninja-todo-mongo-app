@@ -10,7 +10,7 @@ app.set('view engine', 'ejs')   // set to ejs templates
 app.use(express.static('./public'))     // to get the css file, you would now only need ./assets/styles.css, and not the public also
 
 //fire off controllers
-todoController(app)     // this todoController is in is an exported function. we pass in app here so that it is available to the todoController.js file
+todoController(app)     // this todoController is in is an imported function. we pass in app here so that it is available to the todoController.js file
 
 //listen to port
 app.listen(3000)
