@@ -20,7 +20,7 @@ $(document).ready(function() {
     })
 
     $('li').on('click', function() {
-        let item = $(this).text().replace(/ /g, '-')
+        let item = $(this).text().replace(/ /g, '-')		// replace any spaces in the item with hyphens as the url can't take spaces.
         $.ajax({
             type: 'DELETE',
             url: '/todo/' + item,

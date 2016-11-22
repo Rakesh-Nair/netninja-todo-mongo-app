@@ -5,13 +5,15 @@ let mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://user1:p4ssword@ds149567.mlab.com:49567/netninjatodo')  //todo - there is a way to hide this from git, think by putting in a different file and requiring that file, but adding that file to the gitignore?
 
-//create a schema - like a blueprint of what the db should expect to receive
+//create a schema - like a blueprint of what the db should expect to receive, it validates what can and can't be added
 let todoSchema = new mongoose.Schema({
     item: String
 })
 
 // create the model
-// the string Todo below is the name of the collection that will be used to store the todos. It will be created in the db if not already there. The var Todo is just a variable.
+// the string Todo below is the name of the collection that will be used to store the todos. It will be created in the db if not already there. The var Todo is just a variable, but is usually named the same as the collection. the Todo is what you use to interact with the collection... Todo.find(), update, remove etc. 
+// example: let myNextTodo = new Todo({item: "buy groceries"})  // create the todo object based on the todoSchema blueprint
+// myNextTodo.save()  // insert that object into the db
 let Todo = mongoose.model('Todo', todoSchema)
 // this returns a Todo object with a save method on it, so save can be called
 
